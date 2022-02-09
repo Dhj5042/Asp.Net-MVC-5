@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<button id="btnjavascript">Call JavaScript Action</button>
+
+@section Scripts{
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".btnjavascript").click(function () {
+             $.ajax({
+            type: "GET",
+            url: "@Url.Action("/javaScriptResult")",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+            });
+        });
+    });
+    </script>
+ }
