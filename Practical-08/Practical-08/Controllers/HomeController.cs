@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practical_08.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,22 +9,19 @@ namespace Practical_08.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public HomeController()
         {
-            return View();
         }
 
-        public ActionResult About()
+        // GET: Home
+        public string Index()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var str = new ReturnString();
+            return  str.ReturnStringvalue();
         }
 
-        public ActionResult Contact()
+        public ActionResult Home()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
