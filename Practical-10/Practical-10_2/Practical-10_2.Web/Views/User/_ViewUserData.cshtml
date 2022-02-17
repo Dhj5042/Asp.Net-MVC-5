@@ -1,0 +1,33 @@
+﻿@model Practical_10_2.Data.Model.User
+@{
+    ViewBag.Title = "_ViewUserData";
+}
+
+<h2>Partial View For Details and Delete</h2>
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Date_Of_Brith)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Date_Of_Brith)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Address)
+    </dd>
+
+</dl>

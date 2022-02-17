@@ -1,0 +1,6 @@
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_2\Practical-10_2.Data\obj\Debug\Practical-10_2.Data.csproj.AssemblyReference.cache
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_2\Practical-10_2.Data\obj\Debug\Practical-10_2.Data.csproj.CoreCompileInputs.cache
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_2\Practical-10_2.Data\bin\Debug\Practical-10_2.Data.dll
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_2\Practical-10_2.Data\bin\Debug\Practical-10_2.Data.pdb
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_2\Practical-10_2.Data\obj\Debug\Practical-10_2.Data.dll
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_2\Practical-10_2.Data\obj\Debug\Practical-10_2.Data.pdb

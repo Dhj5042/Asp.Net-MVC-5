@@ -1,7 +1,39 @@
-﻿
+﻿@model Practical_09.Models.DivideByZero
 @{
     ViewBag.Title = "Divide";
 }
 
 <h2>Divide</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1> <label id="lbl1"></label> </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
 
+            @using (Html.BeginForm("Divide", "Employee", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+            <div>
+                Enter First Number :
+                @Html.EditorFor(model=>model.Num1, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+                <div>
+                    Enter Second Number :
+                   @Html.EditorFor(model=>model.Num2, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div style="text-align: center">
+                    <input type="submit" value="Submit Form" />
+                </div>
+                <div>
+                    @if (ViewBag.Reslut != null)
+                    {
+                        @ViewBag.Reslut;
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

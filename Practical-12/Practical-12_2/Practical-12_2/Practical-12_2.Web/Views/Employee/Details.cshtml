@@ -1,0 +1,82 @@
+﻿@model Practical_12_2.Data.App_Data.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>First Name</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_Name)
+        </dd>
+
+        <dt>
+            <label>Middle Name</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Middle_Name)
+        </dd>
+
+        <dt>
+            <label>Last Name</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Name)
+        </dd>
+
+        <dt>
+            <label>Date of Birth</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            <label>Mobile Number</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile_Number)
+        </dd>
+
+        <dt>
+            <label>Address</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            <label>Salary</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+        <dt>
+            <label>Designation Name</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignationId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,161 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Practical_13.Models.employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Search by Name</label>
+            <input type="text" id="forsearch" name="forsearch" value="" />
+        </div>
+        <div class="col-md-10">
+            <label>Sort by Row</label>
+            <input type="text" style="width: 20px;" id="txtRowNumber" name="txtRowNumber" value="" />
+            <input type="button" id="submitRowNumber" name="submitRowNumber" value="Ok" />
+        </div>
+    </div>
+</div>
+
+<table class="table" id="dataTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Age)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryadte")
+    <script type="text/javascript">
+        $(function () {
+            //keyUp event
+            GetEmps();
+            $("#forsearch").keyup(function () {
+                GetEmps();
+            });
+        });
+        function GetEmps() {
+            //get data
+            var eName = $.trim($("#forsearch").val());
+            var page = getUrlVars()["Page"];
+            $.ajax({
+                type: "POST",
+                url: "/employees/Search/",
+                data: "{eName:'" + eName + "',page:'" + page+"'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (employees) {
+                    var table = $("#dataTable");
+                    var div = $("#divpage");
+                    table.find("tr:not(:first)").remove();
+                    $.each(employees, function (i, emp) {
+                        //render tabel reslut
+                        DataTabel(emp);
+                        $('#txtRowNumber').val(employees.length);
+                    });
+                }
+            });
+        }
+
+        var DataTabel =emp => {
+            var table = $("#dataTable");
+            var row = table[0].insertRow(-1);
+            $(row).append("<td />");
+            $(row).find("td").eq(0).html(emp.Name);
+            $(row).append("<td />");
+            //$(row).find("td").eq(1).html($.format.date(emp.Dob, "yyyy/MM/dd"));
+            $(row).find("td").eq(1).html(emp.Dob);
+            $(row).append("<td />");
+            $(row).find("td").eq(2).html(emp.Age);
+            $(row).append("<td />");
+            $(row).find("td").eq(3).html("<a href='/employees/Edit/" + emp.Id + "'>Edit</a>");
+            $(row).append("<td />");
+            $(row).find("td").eq(4).html("<a href='/employees/Details/" + emp.Id + "'>Details</a>");
+            $(row).append("<td />");
+            $(row).find("td").eq(5).html("<a href='/employees/Delete/" + emp.Id + "'>Delete</a>");
+            $(row).append("<td/>");
+            $(row).find("td").eq(6).html("</html>");
+        }
+
+        //get pagenumber from url and push in to array
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        function formatDate(date) {
+            date = date.split("-");
+            return `${date[2]}/${date[1]}/${date[0]}`;
+        }
+
+        $(function () {
+        //code for dynamic row
+            $("#submitRowNumber").click(function () {
+                var row = $.trim($("#txtRowNumber").val());
+                var page = getUrlVars()["Page"];
+                $.ajax({
+                    type: "GET",
+                    url: "/employees/Index/?page=" + page + "&row=" + row,
+                    // data: "{page:'" + page + "',row:'" + row + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (employees) {
+                        var table = $("#dataTable");
+                        var div = $("#divpage");
+                        table.find("tr:not(:first)").remove();
+                        $.each(employees, function (i, emp) {
+                            DataTabel(emp);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+}
+<div id="divpage">
+    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))
+
+</div>

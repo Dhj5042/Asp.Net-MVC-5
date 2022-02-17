@@ -12,9 +12,13 @@ namespace Practical_09.Filters
         {
             if(filterContext.Exception is DivideByZeroException)
             {
-
+                filterContext.Result = new ViewResult()
+                {
+                    ViewName = "Error"
+                };
             }
             filterContext.ExceptionHandled = true;
+            
         }
     }
 }

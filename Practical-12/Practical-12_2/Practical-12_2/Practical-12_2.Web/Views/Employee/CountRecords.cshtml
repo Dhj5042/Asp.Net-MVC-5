@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Practical_12_2.Data.App_Data.CountEmp>
+@{
+    ViewBag.Title = "CountRecords";
+}
+
+<h2>CountRecords</h2>
+
+@foreach (var emp in Model)
+{
+    <p>Designation: @emp.Desidnation</p>
+    <p>Count: @emp.Count</p>
+}

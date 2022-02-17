@@ -1,0 +1,5 @@
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_1\Practical-10_1.Data\bin\Debug\Practical-10_1.Data.dll
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_1\Practical-10_1.Data\bin\Debug\Practical-10_1.Data.pdb
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_1\Practical-10_1.Data\obj\Debug\Practical-10_1.Data.csproj.CoreCompileInputs.cache
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_1\Practical-10_1.Data\obj\Debug\Practical-10_1.Data.dll
+C:\Users\dhruvin\Documents\Asp.net\ASP .NET MVC 5\Practicals\Practical-10\Practical-10_1\Practical-10_1.Data\obj\Debug\Practical-10_1.Data.pdb

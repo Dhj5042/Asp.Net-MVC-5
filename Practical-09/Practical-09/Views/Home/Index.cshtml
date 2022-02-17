@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1> <label id="lbl1"></label> </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.ActionLink("Index", "Index", "Employee", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("content Result", "contentResult", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Json Result", "JsonResult", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Empty Result", "emptyResult", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <a id="jsbtn" class="navbar-brand">JavaScript Reslut</a>       
+            @Html.ActionLink("File Result", "FileResult", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Redirect Result", "RedirectResult", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Output Cache", "OutPutCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("DividebyZero", "Dividebyzero", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#jsbtn").click(function () {
+             $.ajax({
+            type: "GET",
+                 url: "/Home/javaScriptResult",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+            });
+        });
+    });
+    </script>
+}

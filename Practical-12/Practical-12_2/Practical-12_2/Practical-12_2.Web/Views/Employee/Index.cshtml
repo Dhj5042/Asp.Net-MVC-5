@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Practical_12_2.Data.App_Data.MultipleModels>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @Html.ActionLink("Count Number of records", "CountRecords")
+</p>
+<h1>
+    @if (TempData["Count"] != null)
+    {
+        @TempData["Count"];
+    }
+</h1>
+<table class="table">
+    <tr>
+        <th>
+            <label>First Name</label>
+        </th>
+        <th>
+            <label>Middle Name</label>
+        </th>
+        <th>
+            <label>Last Name</label>
+        </th>
+        <th>
+            <label>Date of Birth</label>
+        </th>
+        <th>
+            <label>Mobile Number</label>
+        </th>
+        <th width="20%">
+            <label>Address</label>
+        </th>
+        <th>
+            <label>Salary</label>
+        </th>
+        <th>
+            <label>Designation Name</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Middle_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Mobile_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation.designation_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Employee.Id }) |
+            @Html.ActionLink("Details", "Details", new { id= item.Employee.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id= item.Employee.Id })
+        </td>
+
+    </tr>
+}
+
+</table>
