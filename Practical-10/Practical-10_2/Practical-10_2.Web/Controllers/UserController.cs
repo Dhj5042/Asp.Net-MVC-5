@@ -74,9 +74,9 @@ namespace Practical_10_2.Web.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int eid)
         {
-            var modeel = db.Get(id);
+            var modeel = db.Get(eid);
             if (modeel == null)
             {
                 return HttpNotFound();

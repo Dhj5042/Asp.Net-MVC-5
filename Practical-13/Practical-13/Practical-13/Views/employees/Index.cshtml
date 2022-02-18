@@ -99,8 +99,11 @@
             $(row).append("<td />");
             $(row).find("td").eq(0).html(emp.Name);
             $(row).append("<td />");
-            //$(row).find("td").eq(1).html($.format.date(emp.Dob, "yyyy/MM/dd"));
-            $(row).find("td").eq(1).html(emp.Dob);
+            var dt = new Date(parseInt(emp.Dob.replace('/Date(', '')))
+            var FormateUpdated = dateFormater(dt.getFullYear(), 4) + '/' +
+                dateFormater(dt.getMonth() + 1, 2) + '/' +
+                dateFormater(dt.getDate(), 2)
+            $(row).find("td").eq(1).html(FormateUpdated);
             $(row).append("<td />");
             $(row).find("td").eq(2).html(emp.Age);
             $(row).append("<td />");
@@ -125,9 +128,10 @@
             return vars;
         }
 
-        function formatDate(date) {
-            date = date.split("-");
-            return `${date[2]}/${date[1]}/${date[0]}`;
+        //datefunction to Formate a date
+        var dateFormater=(no, size) => {
+            var s = "0000" + no;
+            return s.substr(s.length - size);
         }
 
         $(function () {
